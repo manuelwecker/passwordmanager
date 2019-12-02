@@ -7,7 +7,7 @@ function get(key) {
   return passwords[key];
 }
 
-function set(key) {
+function set(key, value) {
   passwords[key] = value;
 }
 
