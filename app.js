@@ -1,25 +1,23 @@
+// Import mit require
+const { get, set, unset } = require("./utils/cmds");
+
 console.log("hallo password manager");
-
-const [cmd, key, value] = process.argv.slice(2);
-
-const passwords = {
-  wifi: 1234,
-  mac: "sascha"
-};
+const userArgs = process.argv.slice(2);
+const [cmd, key, value] = userArgs;
 
 switch (cmd) {
   case "get":
-    console.log(passwords[key]);
+    const result = get(key);
+    console.log(result);
     break;
 
   case "set":
-    console.log("set");
-    passworts[key] = value;
+    passwords[key] = value;
+    set(key, value);
     break;
 
   case "unset":
-    console.log("unset");
-    delete passworts[key];
+    unset(key);
     break;
 
   default:
@@ -27,4 +25,4 @@ switch (cmd) {
     break;
 }
 
-console.log(passwords);
+console.log("done");
